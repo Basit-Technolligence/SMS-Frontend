@@ -7,7 +7,7 @@ export const addStudent = (student) => {
   student.dob = convertDate(student.dob);
   return async (dispatch) => {
     try {
-      const response = await axios.post("//127.0.0.1:5000/students", student);
+      const response = await axios.post("https://schoolsystembackend.herokuapp.com/students", student);
       if (response.data === "Data Added") {
         dispatch({
           type: "ADD_STUDENT",
@@ -26,7 +26,7 @@ export const addStudent = (student) => {
 export const getStudents = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("//127.0.0.1:5000/students");
+      const response = await axios.get("https://schoolsystembackend.herokuapp.com/students");
       dispatch({
         type: "GET_STUDENTS",
         payload: response.data,
@@ -42,7 +42,7 @@ export const getStudents = () => {
 export const getStudentById = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("//127.0.0.1:5000/students/" + id);
+      const response = await axios.get("https://schoolsystembackend.herokuapp.com/students/" + id);
       dispatch({
         type: "GET_STUDENT_BY_ID",
         payload: response.data,
@@ -83,7 +83,7 @@ export const updateStudent = (id, student) => {
 export const deleteStudent = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios.delete("//127.0.0.1:5000/students/" + id);
+      const response = await axios.delete("https://schoolsystembackend.herokuapp.com/students/" + id);
       if (response.data === "Deleted Data") {
         alert("Student Deleted Successfully");
         dispatch({ type: "DELETE_STUDENT", payload: id });
@@ -100,7 +100,7 @@ export const getChallan=(data)=>{
   return async (dispatch) => {
     try{
       console.log('row',data)
-      const response = await axios.post('//127.0.0.1:5000/getChallan',data);
+      const response = await axios.post('https://schoolsystembackend.herokuapp.com/getChallan',data);
       if(response.data === 'DONE')
         alert('Challan downloaded in desktop')
       dispatch({type:"CHALLAN_DONE"})

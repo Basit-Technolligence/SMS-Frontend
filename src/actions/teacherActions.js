@@ -9,7 +9,7 @@ export const addTeacher = (body) => {
     console.log("aftter covert: ", body);
     return async (dispatch) => {
       try {
-        const response = await axios.post("//127.0.0.1:5000/addTeacher", body);
+        const response = await axios.post("https://schoolsystembackend.herokuapp.com/addTeacher", body);
         if (response) {
           dispatch({
             type: "ADD_TEACHER",
@@ -30,7 +30,7 @@ export const addTeacher = (body) => {
   export const getTeacherbyId = (id) => {
     return async (dispatch) => {
       try {
-        const response = await axios.get("//127.0.0.1:5000/teachers/" + id);
+        const response = await axios.get("https://schoolsystembackend.herokuapp.com/teachers/" + id);
         dispatch({
           type: "GET_TEACHER_BY_ID",
           payload: response.data,
@@ -45,7 +45,7 @@ export const addTeacher = (body) => {
   export const getTeachers = () => {
     return async (dispatch) => {
       try {
-        const response = await axios.get("//127.0.0.1:5000/getTeacher");
+        const response = await axios.get("https://schoolsystembackend.herokuapp.com/getTeacher");
         dispatch({
           type: "GET_TEACHERS",
           payload: response.data,
@@ -60,7 +60,7 @@ export const addTeacher = (body) => {
   export const deleteTeacher = (id) => {
     return async (dispatch) => {
       try {
-        const response = await axios.delete("//127.0.0.1:5000/teachers/" + id);
+        const response = await axios.delete("https://schoolsystembackend.herokuapp.com/teachers/" + id);
         if (response.data === "Deleted Data") {
           alert("Teacher Deleted Successfully");
           dispatch({ type: "DELETE_TEACHER", payload: id });
@@ -79,7 +79,7 @@ export const addTeacher = (body) => {
     return async (dispatch) => {
       try {
         const response = await axios.patch(
-          "//127.0.0.1:5000/teachers/" + id,
+          "https://schoolsystembackend.herokuapp.com/teachers/" + id,
           teacher
         );
         if (response.data === "Updated Data") {

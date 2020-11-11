@@ -4,7 +4,7 @@ import { convertDate } from "./convert-date";
 export const fetchExpenses = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("//127.0.0.1:5000/allExpenses");
+      const response = await axios.get("https://schoolsystembackend.herokuapp.com/allExpenses");
       dispatch({
         type: "ALL_EXPENSES",
         payload: response.data,
@@ -25,7 +25,7 @@ export const addExpense = (body) => {
   console.log("aftter covert: ", body);
   return async (dispatch) => {
     try {
-      const response = await axios.post("//127.0.0.1:5000/addExpense", body);
+      const response = await axios.post("https://schoolsystembackend.herokuapp.com/addExpense", body);
       if (response) {
         dispatch({
           type: "ADD_STUDENT",
@@ -45,7 +45,7 @@ export const updateExpense = (id, expense) => {
   return async (dispatch) => {
     try {
       const response = await axios.patch(
-        "//127.0.0.1:5000/updateExpenses/" + id,
+        "https://schoolsystembackend.herokuapp.com/updateExpenses/" + id,
         expense
       );
       if (response.data === "Updated Successfully") {
