@@ -20,7 +20,6 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "electron": "electron .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
