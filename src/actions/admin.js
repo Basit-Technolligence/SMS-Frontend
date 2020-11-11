@@ -2,7 +2,7 @@ import axios from "axios";
 export const login = (login) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post("//127.0.0.1:5000/login", login);
+      const response = await axios.post("https://schoolsystembackend.herokuapp.com/login", login);
       if(response.data === 'LOGIN_SUCCESS'){
       dispatch({type: "LOGIN_SUCCESS",payload:login.username});
     }else{
@@ -39,7 +39,7 @@ export const authentication = ()=>{
 export const addLogin = (login)=>{
     return async (dispatch)=>{
         try{
-            const response = await axios.post('//127.0.0.1:5000/addLogin',login);
+            const response = await axios.post('https://schoolsystembackend.herokuapp.com/addLogin',login);
             if(response.data === "DATA_ADDED"){
                 alert('Login Added Successfully')
                 dispatch({type :"DATA_ADDED"})
