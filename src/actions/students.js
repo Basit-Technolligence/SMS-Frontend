@@ -60,7 +60,7 @@ export const updateStudent = (id, student) => {
   return async (dispatch) => {
     try {
       const response = await axios.patch(
-        "//127.0.0.1:5000/students/" + id,
+        "https://schoolsystembackend.herokuapp.com/students/" + id,
         student
       );
       if (response.data === "Updated Data") {
