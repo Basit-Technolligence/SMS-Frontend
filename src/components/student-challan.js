@@ -39,7 +39,7 @@ const StudentChallan = (props) => {
     });
   let actions = [
       {
-        icon: "PlayForWork",
+        icon: "saveicon",
         tooltip: "Download Challan",
         onClick: async (event, rowData) => {
             await dispatch(getChallan(rowData));

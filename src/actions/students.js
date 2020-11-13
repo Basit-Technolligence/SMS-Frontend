@@ -102,7 +102,7 @@ export const getChallan=(data)=>{
       console.log('row',data)
       const response = await axios.post('https://schoolsystembackend.herokuapp.com/getChallan',data);
       if(response.data === 'DONE')
-        alert('Challan downloaded in desktop')
+        alert('Challan downloaded in download folder')
       dispatch({type:"CHALLAN_DONE"})
     }catch(e){
       console.log(e);
