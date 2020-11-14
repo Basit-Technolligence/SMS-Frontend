@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useState} from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Grid from "@material-ui/core/Grid";
@@ -9,16 +9,22 @@ import {useDispatch, useSelector} from 'react-redux'
 
 const LoginForm = () => {
   const history = useHistory();
+  const [load,setload]=useState('Log In');
   useSelector(state => {
     if(state.adminReducer.loggedIn){
       history.push('/home');
       console.log('login done');
     }else{
+      if(load === 'Loading') 
+      setTimeout(()=>{
+        setload('Log In');
+      },4000)
       console.log('login fail');
     }
   });
   const dispatch = useDispatch();
   const onFinish = (values) => {
+    setload('Loading')
     dispatch(login(values));
   };
 
@@ -79,9 +85,10 @@ const LoginForm = () => {
                 style={{ width: "100%" }}
                 className="login-form-button"
               >
-                Log in
+               {load}
               </Button>
             </Form.Item>
+            
           </Form>
         </OutlinedCard>
       </Grid>

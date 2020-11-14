@@ -1,5 +1,6 @@
 import axios from "axios";
 import { convertDate } from "./convert-date";
+import download from 'js-file-download';
 
 export const addStudent = (student) => {
   student["currentClass"] = student["admissionClass"];
@@ -99,10 +100,10 @@ export const deleteStudent = (id) => {
 export const getChallan=(data)=>{
   return async (dispatch) => {
     try{
-      console.log('row',data)
-      const response = await axios.post('https://schoolsystembackend.herokuapp.com/getChallan',data);
-      if(response.data === 'DONE')
-        alert('Challan downloaded in download folder')
+      const response1 = await axios.post('https://schoolsystembackend.herokuapp.com/getChallan',data);
+      // const response2 = await axios.get('//127.0.0.1:5000/getChallan/'+response1.data);
+      // download('//127.0.0.1:5000/getChallan/'+response1.data);
+      window.open('https://schoolsystembackend.herokuapp.com/getChallan/'+response1.data)
       dispatch({type:"CHALLAN_DONE"})
     }catch(e){
       console.log(e);
