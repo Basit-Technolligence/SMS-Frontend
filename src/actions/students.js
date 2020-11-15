@@ -100,7 +100,7 @@ export const deleteStudent = (id) => {
 export const getChallan=(data)=>{
   return async (dispatch) => {
     try{
-      const response1 = await axios.post('https://schoolsystembackend.herokuapp.com/getChallan',data);
+      const response1 = await axios.post('https://schoolsystembackend.herokuapp.com/getChallan/',data);
       // const response2 = await axios.get('//127.0.0.1:5000/getChallan/'+response1.data);
       // download('//127.0.0.1:5000/getChallan/'+response1.data);
       window.open('https://schoolsystembackend.herokuapp.com/getChallan/'+response1.data)
