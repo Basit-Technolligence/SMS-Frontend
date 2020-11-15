@@ -100,10 +100,14 @@ export const deleteStudent = (id) => {
 export const getChallan=(data)=>{
   return async (dispatch) => {
     try{
-      const response1 = await axios.post('https://schoolsystembackend.herokuapp.com/getChallan/',data);
-      // const response2 = await axios.get('//127.0.0.1:5000/getChallan/'+response1.data);
+      const response1 = await axios.post('//127.0.0.1:5000/getChallan/',data);
+      const response2 = await axios.get('//127.0.0.1:5000/getChallan/'+response1.data, {
+        Accept: 'application/pdf',
+        'Content-Type': 'application/pdf',
+        mode: 'no-cors'
+      });
       // download('//127.0.0.1:5000/getChallan/'+response1.data);
-      window.open('https://schoolsystembackend.herokuapp.com/getChallan/'+response1.data)
+      window.open('//127.0.0.1:5000/getChallan/'+response1.data)
       dispatch({type:"CHALLAN_DONE"})
     }catch(e){
       console.log(e);
